@@ -50,7 +50,12 @@ namespace SnookerCalc
                 {
                     Console.WriteLine("Podaj liczbe kolorowych bil na stole");
                     string colcount = Console.ReadLine();
-                    int colors = int.Parse(colcount);
+                    int colors;
+                    if (!int.TryParse(colcount, out colors))
+                    {
+                        Console.WriteLine("{0} nie jest liczbą",colcount);
+                        return;
+                    }
                     switch (colors)
                     {
                         case 0:
